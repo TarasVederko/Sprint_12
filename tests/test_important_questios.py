@@ -1,14 +1,13 @@
 import allure
 import pytest
-
-import data
+from data.data_imoprtant_question import Data
 from pages.main_page import MainPage
 
 from tests.conftest import driver
 
 
 class TestImportantQuestion:
-    @pytest.mark.parametrize(('question_locator', 'answer_locator','question_text', 'expected_text'), data.Data.questions_and_answers)
+    @pytest.mark.parametrize(('question_locator', 'answer_locator','question_text', 'expected_text'), Data.questions_and_answers)
     @allure.title("Проверка ответа на вопрос {question_text}")
     def test_answer(self, driver, question_locator, answer_locator, question_text, expected_text):
         page = MainPage(driver)
