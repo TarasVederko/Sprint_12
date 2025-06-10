@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tests.conftest import driver
 
-
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -34,3 +33,22 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(
             EC.text_to_be_present_in_element_attribute(locator, attribute, value)
         )
+
+    @allure.step("Ввести текст в поле ввода")
+    def send_keys_to_input(self, locator, keys, timeout=10):
+        element = self.wait_for_element(locator, timeout)
+        element.clear()
+        element.send_keys(keys)
+
+    @allure.step("Переключить браузер на вторую вкладку")
+    def switch_to_new_window(self):
+        original_window = self.driver.current_window_handle
+        all_windows = self.driver.window_handles
+        for window in all_windows:
+            if window != original_window:
+                self.driver.switch_to.window(window)
+                break
+
+    @allure.step('Подождать загрузку нужного url')
+    def wait_for_url(self, substring, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.url_contains(substring))

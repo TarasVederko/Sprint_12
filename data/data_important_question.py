@@ -1,5 +1,7 @@
 from locators.main_page_locators import QuestionLocators, AnswerQuestionLocators
 
+
+#собираем парами текст всех вопросов и ответов для блока важные вопросы на главной странице
 class Texts:
     QUESTION_TEXT_1 = f'Сколько это стоит? И как оплатить?'
     ANSWER_TEXT_1 = f'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'
@@ -26,7 +28,7 @@ class Texts:
     ANSWER_TEXT_8 = f'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
 
 
-
+#собираем кортежы из локаторов и текста для парметризированного теста блока важные вопросы на главной странице
 class Data:
     questions_and_answers = [
         (QuestionLocators.QUESTION_1, AnswerQuestionLocators.ANSWER_1, Texts.QUESTION_TEXT_1, Texts.ANSWER_TEXT_1),
@@ -38,24 +40,3 @@ class Data:
         (QuestionLocators.QUESTION_7, AnswerQuestionLocators.ANSWER_7, Texts.QUESTION_TEXT_7, Texts.ANSWER_TEXT_7),
         (QuestionLocators.QUESTION_8, AnswerQuestionLocators.ANSWER_8, Texts.QUESTION_TEXT_8, Texts.ANSWER_TEXT_8)
     ]
-
-
-
-
-
-
-
-    name_1 = 'Энакин'
-    surname_1 = 'Скайуокер'
-    adress_1 = 'Татуин'
-    phone_number_1 = '+2162193141'
-
-    name_2 = 'Джа-Джа'
-    surname_2 = 'Бинкс'
-    adress_2 = 'Набу'
-    phone_number_2 = '+4419233141'
-
-    name_3 = 'Лея'
-    surname_3 = 'Органа-Соло'
-    adress_3 = 'Альдеараан'
-    phone_number_3 = "+7531415926"
