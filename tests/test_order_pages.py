@@ -17,4 +17,4 @@ class TestOrderPageFirst:
         page.confirm_order()
         page.wait_for_element(ConformationWindows.CHECK_STATUS_BUTTON)
         result = page.get_text_on_element(ConformationWindows.CONF_TEXT)
-        assert 'Заказ оформлен' in result, 'Не удалось оформить заказ'
+        assert Texts.CONFORMATION_TEXT in result, 'Не удалось оформить заказ'

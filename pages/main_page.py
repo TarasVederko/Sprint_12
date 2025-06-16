@@ -4,10 +4,6 @@ from locators.main_page_locators import ButtonLocators, LogoHeaderLocators
 
 class MainPage(BasePage):
 
-     def __init__(self, driver):
-         super().__init__(driver)
-         self.driver = driver
-
      @allure.step("Клик по кнопке Заказать в шапке")
      def click_order_button_header(self):
          self.click_on_element(ButtonLocators.ORDER_BUTTON_HEADER)

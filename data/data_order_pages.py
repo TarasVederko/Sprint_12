@@ -14,3 +14,6 @@ class DataForOrder:
         (Credentials.NAME_1, Credentials.SURNAME_1, Credentials.ADDRESS_1, Credentials.PHONE_NUMBER_1),
         (Credentials.NAME_2, Credentials.SURNAME_2, Credentials.ADDRESS_2, Credentials.PHONE_NUMBER_2),
     ]
+
+class Texts:
+    CONFORMATION_TEXT = 'Заказ оформлен'

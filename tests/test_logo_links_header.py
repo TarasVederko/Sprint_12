@@ -12,8 +12,7 @@ class TestLinksInHeader:
         page.click_on_element(ButtonLocators.ORDER_BUTTON_HEADER)
         page.wait_for_element(FirstPageOrderLocators.NAME_FIELD)
         page.click_scooter_logo_header()
-        url = driver.current_url
-        assert url == main_site, 'Ошибка в url'
+        assert page.get_current_url(driver) == main_site, 'Ошибка в url'
 
     @allure.title('Проверяем переход на Дзен по клику на логотип Яндекс в шапке')
     def test_click_logo_yandex(self, driver):
@@ -21,5 +20,4 @@ class TestLinksInHeader:
         page.click_on_element(LogoHeaderLocators.YANDEX)
         page.switch_to_new_window()
         page.wait_for_url(dzen_site)
-        current_url = driver.current_url
-        assert dzen_site in current_url, 'После клика на лого Яндекса страница дзен не открылась'
+        assert dzen_site in page.get_current_url(driver), 'После клика на лого Яндекса страница дзен не открылась'
